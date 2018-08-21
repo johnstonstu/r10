@@ -1,12 +1,13 @@
 import { createStackNavigator } from "react-navigation";
 import About from "../screens/About";
-import Map from "../screens/Map";
+// import Map from "../screens/Map";
+import NavigationLayout from "./NavigationLayout";
 
-export default createStackNavigator({
-  about: {
-    screen: About
+export default createStackNavigator(
+  {
+    NavigationLayout
   },
-  Map: {
-    screen: Map
+  {
+    headerMode: "none"
   }
-});
+);

@@ -1,3 +1,3 @@
-import Favs from "./Favs";
+import FavsContainer from "./FavsContainer.js";
 
-export default Favs;
+export default FavsContainer;

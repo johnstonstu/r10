@@ -1,3 +1,3 @@
-import Map from "./Map";
+import MapContainer from "./MapContainer.js";
 
-export default Map;
+export default MapContainer;

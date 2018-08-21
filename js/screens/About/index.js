@@ -1,3 +1,3 @@
-import AboutContainer from "./AboutContainer";
+import AboutContainer from "./AboutContainer.js";
 
 export default AboutContainer;

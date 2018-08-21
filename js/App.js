@@ -7,6 +7,11 @@ import RootStackNavigator from "./navagation/RootStackNavigator";
 
 export default class App extends Component {
   render() {
-    return <RootStackNavigator />;
+    return (
+      <ApolloProvider client={client}>
+        <RootStackNavigator />
+        {/* <Text>HIHIHIH</Text> */}
+      </ApolloProvider>
+    );
   }
 }

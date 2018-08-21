@@ -1,3 +1,3 @@
-import Schedule from "./Schedule";
+import ScheduleContainer from "./ScheduleContainer.js";
 
-export default Schedule;
+export default ScheduleContainer;

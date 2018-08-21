@@ -28,6 +28,7 @@ const Conducts = () => (
 );
 
 export default class AboutContainer extends Component {
+  static navigationOptions = { title: "About" };
   componentDidMount() {
     client
       .query({
