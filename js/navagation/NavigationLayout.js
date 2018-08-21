@@ -8,30 +8,59 @@ import Map from "../screens/Map";
 import Favs from "../screens/Favs";
 import Schedule from "../screens/Schedule";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { sharedNavigationOptions } from "./config";
 
-const stackAbout = createStackNavigator({
-  About: {
-    screen: About
+const stackAbout = createStackNavigator(
+  {
+    About: {
+      screen: About
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const stackMap = createStackNavigator({
-  Map: {
-    screen: Map
+const stackMap = createStackNavigator(
+  {
+    Map: {
+      screen: Map
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const stackFavs = createStackNavigator({
-  Favs: {
-    screen: Favs
+const stackFavs = createStackNavigator(
+  {
+    Favs: {
+      screen: Favs
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
-const stackSchedule = createStackNavigator({
-  Schedule: {
-    screen: Schedule
+const stackSchedule = createStackNavigator(
+  {
+    Schedule: {
+      screen: Schedule
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
   }
-});
+);
 
 export default createBottomTabNavigator(
   {
@@ -68,7 +97,10 @@ export default createBottomTabNavigator(
     tabBarOptions: {
       activeTintColor: "white",
       inactiveTintColor: "gray",
-      labelStyle: 10,
+      labelStyle: {
+        fontSize: 10,
+        fontFamily: "Montserrat"
+      },
       style: {
         backgroundColor: "black",
         shadowColor: "black",
