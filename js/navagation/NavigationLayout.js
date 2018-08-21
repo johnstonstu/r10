@@ -45,10 +45,19 @@ export default createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === "Home") {
-          iconName = `ios-information-circle${focused ? "" : "-outline"}`;
-        } else if (routeName === "Settings") {
-          iconName = `ios-options${focused ? "" : "-outline"}`;
+        switch (routeName) {
+          case "Schedule":
+            iconName = `ios-calendar`;
+            break;
+          case "Map":
+            iconName = `ios-map`;
+            break;
+          case "Favs":
+            iconName = `ios-heart`;
+            break;
+          case "About":
+            iconName = `ios-information-circle`;
+            break;
         }
 
         // You can return any component that you like here! We usually use an
@@ -57,8 +66,18 @@ export default createBottomTabNavigator(
       }
     }),
     tabBarOptions: {
-      activeTintColor: "tomato",
-      inactiveTintColor: "gray"
+      activeTintColor: "white",
+      inactiveTintColor: "gray",
+      labelStyle: 10,
+      style: {
+        backgroundColor: "black",
+        shadowColor: "black",
+        shadowOffset: {
+          height: -2
+        },
+        shadowOpacity: 0.5,
+        shadowRadius: 2
+      }
     }
   }
 );
