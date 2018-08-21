@@ -3,11 +3,10 @@ import { StyleSheet, Text, View } from "react-native";
 import AboutScreen from "./screens/About";
 import { ApolloProvider } from "react-apollo";
 import client from "./config/api";
+import RootStackNavigator from "./navagation/RootStackNavigator";
 
-const App = () => (
-  <ApolloProvider client={client}>
-    <AboutScreen />
-  </ApolloProvider>
-);
-
-export default App;
+export default class App extends Component {
+  render() {
+    return <RootStackNavigator />;
+  }
+}
