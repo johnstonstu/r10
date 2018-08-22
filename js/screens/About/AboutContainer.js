@@ -16,38 +16,18 @@ const GET_ALL_CONDUCTS = gql`
   }
 `;
 
-const Conducts = () => (
-  <Query query={GET_ALL_CONDUCTS}>
-    {({ loading, error, data }) => {
-      if (loading) return null;
-      if (error) return `Error!: ${error}`;
-
-      return <View>{data}</View>;
-    }}
-  </Query>
-);
-
 export default class AboutContainer extends Component {
   static navigationOptions = { title: "About" };
-  componentDidMount() {
-    client
-      .query({
-        query: gql`
-          {
-            allConducts {
-              title
-              description
-            }
-          }
-        `
-      })
-      .then(result => console.log(result));
-  }
   render() {
     return (
-      <ApolloProvider client={client}>
-        <About />
-      </ApolloProvider>
+      <Query query={GET_ALL_CONDUCTS}>
+        {({ loading, error, data }) => {
+          if (loading) return null;
+          if (error) return `Error!: ${error}`;
+
+          return <About conducts={data.allConducts} />;
+        }}
+      </Query>
     );
   }
 }
