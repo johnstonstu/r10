@@ -6,6 +6,7 @@ import { ApolloProvider } from "react-apollo";
 import client from "../../config/api";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import formatData from "../../lib/dataFormatHelper";
 
 const GET_ALL_CONDUCTS = gql`
   {

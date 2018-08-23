@@ -1,7 +1,4 @@
-import {
-  createBottomTabNavigator,
-  createStackNavigator
-} from "react-navigation";
+import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import React from "react";
 import About from "../screens/About";
 import Map from "../screens/Map";
@@ -9,6 +6,7 @@ import Favs from "../screens/Favs";
 import Schedule from "../screens/Schedule";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
+import { Platform } from "react-native";
 
 const stackAbout = createStackNavigator(
   {
@@ -62,7 +60,7 @@ const stackSchedule = createStackNavigator(
   }
 );
 
-export default createBottomTabNavigator(
+export default createDrawerNavigator(
   {
     Schedule: stackSchedule,
     Map: stackMap,
@@ -99,7 +97,14 @@ export default createBottomTabNavigator(
       inactiveTintColor: "gray",
       labelStyle: {
         fontSize: 10,
-        fontFamily: "Montserrat"
+        ...Platform.select({
+          ios: {
+            fontFamily: "Montserrat"
+          },
+          android: {
+            fontFamily: "Montserrat-Regular"
+          }
+        })
       },
       style: {
         backgroundColor: "black",
