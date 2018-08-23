@@ -9,14 +9,14 @@ import {
 } from "react-native";
 import Moment from "moment";
 
-export const SessionList = ({ data }) => {
+export const SessionList = ({ data, nav }) => {
   console.log(data);
   return (
     <ScrollView>
       <SectionList
         renderItem={({ item }) => (
-          <TouchableHighlight onPress={console.log("pressed")}>
-            <View>
+          <TouchableHighlight onPress={() => nav(item.id)}>
+            <View style={styles.card}>
               <Text style={styles.title}>{item.title}</Text>
               <Text>{item.location}</Text>
             </View>
@@ -40,5 +40,9 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     marginBottom: 5
+  },
+  card: {
+    borderBottomWidth: 1,
+    borderBottomColor: "grey"
   }
 });

@@ -4,7 +4,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { SessionList } from "../../components/SessionList";
 
 const Schedule = props => {
-  return <SessionList data={props.sessions} />;
+  return <SessionList data={props.sessions} nav={props.nav} />;
 };
 
 export default Schedule;

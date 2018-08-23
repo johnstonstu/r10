@@ -4,6 +4,7 @@ import About from "../screens/About";
 import Map from "../screens/Map";
 import Favs from "../screens/Favs";
 import Schedule from "../screens/Schedule";
+import Session from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 import { Platform } from "react-native";
@@ -51,6 +52,9 @@ const stackSchedule = createStackNavigator(
   {
     Schedule: {
       screen: Schedule
+    },
+    Session: {
+      screen: Session
     }
   },
   {
