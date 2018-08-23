@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import Schedule from "./Schedule.js";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import { formatSessionData } from "../../lib/dataFormatHelper";
 
 const GET_SCHEDULE = gql`
   {
@@ -10,6 +11,7 @@ const GET_SCHEDULE = gql`
       title
       description
       startTime
+      location
     }
   }
 `;
@@ -19,11 +21,11 @@ export default class ScheduleContainer extends Component {
   render() {
     return (
       <Query query={GET_SCHEDULE}>
-        {({ loading, error, data }) => {
+        {({ loading, error, data: { allSessions } }) => {
           if (loading) return null;
           if (error) return `Error!: ${error}`;
 
-          return <Schedule sessions={data.allSessions} />;
+          return <Schedule sessions={formatSessionData(allSessions)} />;
         }}
       </Query>
     );
