@@ -60,61 +60,27 @@ const stackSchedule = createStackNavigator(
   }
 );
 
-export default createDrawerNavigator(
-  {
-    Schedule: stackSchedule,
-    Map: stackMap,
-    Favs: stackFavs,
-    About: stackAbout
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-        let iconName;
-        switch (routeName) {
-          case "Schedule":
-            iconName = `ios-calendar`;
-            break;
-          case "Map":
-            iconName = `ios-map`;
-            break;
-          case "Favs":
-            iconName = `ios-heart`;
-            break;
-          case "About":
-            iconName = `ios-information-circle`;
-            break;
-        }
+const renderIcon = (iconName, tintColor) => {
+  return <Ionicons name={iconName} size={25} color={tintColor} />;
+};
 
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
-      }
-    }),
-    tabBarOptions: {
-      activeTintColor: "white",
-      inactiveTintColor: "gray",
-      labelStyle: {
-        fontSize: 10,
-        ...Platform.select({
-          ios: {
-            fontFamily: "Montserrat"
-          },
-          android: {
-            fontFamily: "Montserrat-Regular"
-          }
-        })
-      },
-      style: {
-        backgroundColor: "black",
-        shadowColor: "black",
-        shadowOffset: {
-          height: -2
-        },
-        shadowOpacity: 0.5,
-        shadowRadius: 2
-      }
-    }
-  }
-);
+stackAbout.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-information-circle", tintColor)
+};
+
+stackFavs.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-heart", tintColor)
+};
+stackMap.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-map", tintColor)
+};
+stackSchedule.navigationOptions = {
+  drawerIcon: ({ tintColor }) => renderIcon("md-calendar", tintColor)
+};
+
+export default createDrawerNavigator({
+  Schedule: stackSchedule,
+  Map: stackMap,
+  Favs: stackFavs,
+  About: stackAbout
+});
