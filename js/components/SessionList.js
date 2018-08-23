@@ -10,7 +10,6 @@ import {
 import Moment from "moment";
 
 export const SessionList = ({ data, nav }) => {
-  console.log(data);
   return (
     <ScrollView>
       <SectionList

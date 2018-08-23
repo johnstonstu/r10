@@ -3,7 +3,6 @@ import { Text, View, Button } from "react-native";
 import Moment from "moment";
 
 export const SessionSingle = ({ data, addFave, removeFave }) => {
-  console.log(data);
   return (
     <View>
       <Text>{data.title}</Text>

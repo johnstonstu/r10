@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavsContext from "../../context/FavesContext";
 
-const SESSION_QUERY = gql`
+export const SESSION_QUERY = gql`
   query getSession($id: ID) {
     Session(id: $id) {
       id
@@ -24,7 +24,6 @@ export default class SessionContainer extends Component {
   static navigationOptions = { title: "Session" };
 
   render() {
-    console.log(this.props.navigation.getParam("id"));
     return (
       <Query
         query={SESSION_QUERY}
@@ -39,8 +38,8 @@ export default class SessionContainer extends Component {
                 return (
                   <SessionSingle
                     data={Session}
-                    addFave={values.addFaveSession}
-                    removeFave={values.removeFaveSession}
+                    addFave={values.addFave}
+                    removeFave={values.removeFave}
                   />
                 );
               }}

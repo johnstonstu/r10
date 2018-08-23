@@ -13,7 +13,7 @@ const realm = new Realm({ schema: [faveSchema] });
 
 export const addFave = id => {
   realm.write(() => {
-    realm.create("Fave", { id: id, date: new Date() });
+    realm.create("Fave", { id: id, faved_on: new Date() });
   });
 };
 
