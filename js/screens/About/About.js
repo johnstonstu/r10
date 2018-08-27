@@ -1,10 +1,9 @@
 import React, { Component, Fragment } from "react";
 import { Text, View, Image, ScrollView } from "react-native";
-
-// api call is section list in scroll view
+import AboutConduct from "../../components/AboutConduct";
+import styles from "./styles";
 
 const About = props => {
-  console.log(props.conducts);
   return (
     <ScrollView>
       <Image source={require("../../assets/images/r10_logo.png")} />
@@ -17,10 +16,7 @@ const About = props => {
       </Text>
       <Text>Code of Conduct</Text>
       {props.conducts.map(conduct => (
-        <Fragment key={conduct.title}>
-          <Text>{conduct.title}</Text>
-          <Text>{conduct.description}</Text>
-        </Fragment>
+        <AboutConduct data={conduct} styles={styles} key={conduct.title} />
       ))}
     </ScrollView>
   );
