@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import Favs from "./Favs.js";
+import Favs from "./Favs";
 import FavesContext from "../../context/FavesContext";
-import SESSION_QUERY from "../Session/SessionContainer";
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
+import { formatSessionData } from "../../lib/dataFormatHelper";
+
+const GET_FAVES = gql`
+  {
+    allSessions {
+      id
+      location
+      startTime
+      title
+    }
+  }
+`;
 
 export default class FavsContainer extends Component {
   static navigationOptions = { title: "Favs" };
@@ -16,9 +29,26 @@ export default class FavsContainer extends Component {
   render() {
     return (
       <FavesContext.Consumer>
-        {values => {
-          console.log(values);
-          return <Favs />;
+        {value => {
+          return (
+            <Query query={GET_FAVES}>
+              {({ loading, error, data }) => {
+                if (loading) return null;
+                if (error) return <Text>{`Error: ${error}`}</Text>;
+                const favesIds = value.favesIds.map(fave => fave.id);
+                const faves = data.allSessions.filter(session => {
+                  if (favesIds.includes(session.id)) return session;
+                });
+
+                return (
+                  <Favs
+                    sessions={formatSessionData(faves)}
+                    nav={id => this.sessionNav(id)}
+                  />
+                );
+              }}
+            </Query>
+          );
         }}
       </FavesContext.Consumer>
     );

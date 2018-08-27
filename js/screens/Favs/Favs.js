@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
+import { SessionList } from "../../components/SessionList";
 
-const Favs = () => {
-  return (
-    <View>
-      <Text>Favs</Text>
-    </View>
-  );
+const Favs = props => {
+  console.log(props);
+  return <SessionList data={props.sessions} nav={props.nav} />;
 };
 
 export default Favs;
