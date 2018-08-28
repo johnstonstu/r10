@@ -5,11 +5,18 @@ import {
   Text,
   View,
   TouchableHighlight,
-  StyleSheet
+  StyleSheet,
+  Platform
 } from "react-native";
 import Moment from "moment";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-export const SessionList = ({ data, nav }) => {
+const heartIcon = Platform.select({
+  ios: "ios-heart",
+  android: "md-heart"
+});
+
+export const SessionList = ({ data, nav, favesIds }) => {
   return (
     <ScrollView>
       <SectionList
@@ -18,6 +25,9 @@ export const SessionList = ({ data, nav }) => {
             <View style={styles.card}>
               <Text style={styles.title}>{item.title}</Text>
               <Text>{item.location}</Text>
+              {favesIds.includes(item.id) && (
+                <Ionicons name={heartIcon} size={18} color={"red"} />
+              )}
             </View>
           </TouchableHighlight>
         )}

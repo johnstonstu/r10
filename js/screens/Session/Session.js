@@ -39,11 +39,11 @@ export default class SessionSingle extends Component {
 
         <Button
           title="add to faves"
-          onPress={() => addFave(this.props.data.id)}
+          onPress={() => this.props.addFave(this.props.data.id)}
         />
         <Button
           title="remove from faves"
-          onPress={() => removeFave(this.props.data.id)}
+          onPress={() => this.props.removeFave(this.props.data.id)}
         />
         <Modal
           animationType="slide"

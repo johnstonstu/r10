@@ -28,29 +28,31 @@ export default class FavsContainer extends Component {
 
   render() {
     return (
-      <FavesContext.Consumer>
-        {value => {
+      <Query query={GET_FAVES}>
+        {({ loading, error, data }) => {
+          if (loading) return null;
+          if (error) return <Text>{`Error: ${error}`}</Text>;
           return (
-            <Query query={GET_FAVES}>
-              {({ loading, error, data }) => {
-                if (loading) return null;
-                if (error) return <Text>{`Error: ${error}`}</Text>;
-                const favesIds = value.favesIds.map(fave => fave.id);
-                const faves = data.allSessions.filter(session => {
-                  if (favesIds.includes(session.id)) return session;
-                });
+            <FavesContext.Consumer>
+              {value => {
+                const favesArr = [];
+                value.favesIds.map(fave => favesArr.push(fave.id));
 
+                const faves = data.allSessions.filter(session => {
+                  if (favesArr.includes(session.id)) return session;
+                });
                 return (
                   <Favs
                     sessions={formatSessionData(faves)}
                     nav={id => this.sessionNav(id)}
+                    favesIds={favesArr}
                   />
                 );
               }}
-            </Query>
+            </FavesContext.Consumer>
           );
         }}
-      </FavesContext.Consumer>
+      </Query>
     );
   }
 }
