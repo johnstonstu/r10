@@ -12,9 +12,12 @@ export const SESSION_QUERY = gql`
       title
       location
       startTime
+      description
       speaker {
         name
         bio
+        image
+        id
       }
     }
   }
@@ -40,6 +43,7 @@ export default class SessionContainer extends Component {
                     data={Session}
                     addFave={values.addFave}
                     removeFave={values.removeFave}
+                    nav={this.props.navigation}
                   />
                 );
               }}

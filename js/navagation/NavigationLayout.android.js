@@ -5,6 +5,7 @@ import Map from "../screens/Map";
 import Favs from "../screens/Favs";
 import Schedule from "../screens/Schedule";
 import Session from "../screens/Session";
+import Speaker from "../screens/Speaker";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 import { Platform } from "react-native";
@@ -55,6 +56,19 @@ const stackSchedule = createStackNavigator(
     },
     Session: {
       screen: Session
+    }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
+
+const stackSpeaker = createStackNavigator(
+  {
+    Speaker: {
+      screen: Speaker
     }
   },
   {

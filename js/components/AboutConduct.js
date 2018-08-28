@@ -15,7 +15,7 @@ export default class ConductItem extends Component {
     };
   }
 
-  _toggleConduct() {
+  toggle() {
     if (!this.state.height) this.state.height = new Animated.Value(0);
     let initialValue = this.state.expanded ? this.state.maxHeight : 0,
       finalValue = this.state.expanded ? 0 : this.state.maxHeight;
@@ -29,7 +29,7 @@ export default class ConductItem extends Component {
       toValue: finalValue
     }).start();
   }
-  _setMaxHeight(e) {
+  maxHeight(e) {
     if (
       this.state.maxHeight === undefined ||
       e.nativeEvent.layout.height >= this.state.maxHeight
@@ -48,19 +48,19 @@ export default class ConductItem extends Component {
     }
     return (
       <View>
-        <TouchableOpacity onPress={() => this._toggleConduct()}>
+        <TouchableOpacity onPress={() => this.toggle()}>
           <View style={this.props.styles.titleContainer}>
             <Ionicons
               name={Platform.OS === "ios" ? `ios-${icon}` : `md-${icon}`}
-              size={15}
-              color={"#9963ea"}
               style={{ paddingRight: 5 }}
+              color={"#9963ea"}
+              size={15}
             />
             <Text style={this.props.styles.title}>{this.props.data.title}</Text>
           </View>
         </TouchableOpacity>
         <Animated.View style={{ height: this.state.height }}>
-          <View onLayout={e => this._setMaxHeight(e)}>
+          <View onLayout={e => this.maxHeight(e)}>
             <Text style={this.props.styles.bodyText}>
               {this.props.data.description}
             </Text>
