@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ActivityIndicator } from "react-native";
-import { SessionSingle } from "./Session";
+import SessionSingle from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavsContext from "../../context/FavesContext";
@@ -18,6 +18,7 @@ export const SESSION_QUERY = gql`
         bio
         image
         id
+        url
       }
     }
   }
@@ -25,6 +26,12 @@ export const SESSION_QUERY = gql`
 
 export default class SessionContainer extends Component {
   static navigationOptions = { title: "Session" };
+
+  speakerNav = id => {
+    this.props.navigation.navigate("Speaker", {
+      id: id
+    });
+  };
 
   render() {
     return (
@@ -43,7 +50,7 @@ export default class SessionContainer extends Component {
                     data={Session}
                     addFave={values.addFave}
                     removeFave={values.removeFave}
-                    nav={this.props.navigation}
+                    nav={id => this.speakerNav(id)}
                   />
                 );
               }}

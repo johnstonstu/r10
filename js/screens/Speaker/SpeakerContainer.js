@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Speaker from "./Speaker";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { Text, ActivityIndicator } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
 
 const SPEAKER_QUERY = gql`
   query Speaker($id: ID!) {
@@ -18,20 +18,13 @@ const SPEAKER_QUERY = gql`
 
 export default class SpeakerContainer extends Component {
   static navigationOptions = {
-    title: "About the Speaker"
+    title: "Speaker"
   };
   render() {
     return (
-      <Query
-        query={SPEAKER_QUERY}
-        variables={{ id: this.props.navigation.getParam("id") }}
-      >
-        {({ data: { Speaker }, loading, error }) => {
-          if (loading) return <ActivityIndicator size="large" />;
-          if (error) return <Text>Error :{error.message}</Text>;
-          return <Speaker data={Speaker} />;
-        }}
-      </Query>
+      <View>
+        <Text>HIHI</Text>
+      </View>
     );
   }
 }
