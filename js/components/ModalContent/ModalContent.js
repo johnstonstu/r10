@@ -15,9 +15,7 @@ import {
 import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
-
-
-
+import GradientButton from '../GradientButton'
 
 export const ModalContent = props => {
     return (
@@ -53,20 +51,9 @@ export const ModalContent = props => {
               </Text>
 
               <Text style={styles.modalBio}>{props.data.speaker.bio}</Text>
-              <TouchableOpacity
-                onPress={() => {
+              <GradientButton text={"Read more on Wiki"} action={() => {
                   Linking.openURL(props.data.speaker.url);
-                }}
-              >
-                <LinearGradient
-                  style={styles.button}
-                  colors={["#9963ea", "#8797D6"]}
-                  start={{ x: 0.0, y: 1.0 }}
-                  end={{ x: 1.0, y: 0.0 }}
-                >
-                  <Text style={styles.buttonText}>Read more on Wiki</Text>
-                </LinearGradient>
-              </TouchableOpacity>
+                }} />
               </ScrollView>
             </View>
           </View>

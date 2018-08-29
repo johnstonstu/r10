@@ -17,6 +17,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import ModalContent from "../../components/ModalContent";
+import GradientButton from '../../components/GradientButton'
 
 const heartIcon = Platform.select({
   ios: "ios-heart",
@@ -57,31 +58,9 @@ export default class SessionSingle extends Component {
         </TouchableOpacity>
 
         {this.props.favesIds.includes(this.props.data.id) ? (
-          <TouchableOpacity
-            onPress={() => this.props.removeFave(this.props.data.id)}
-          >
-            <LinearGradient
-              style={styles.button}
-              colors={["#9963ea", "#8797D6"]}
-              start={{ x: 0.0, y: 1.0 }}
-              end={{ x: 1.0, y: 0.0 }}
-            >
-              <Text style={styles.buttonText}>Remove from Faves</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+          <GradientButton text={"Remove from Faves"} action={() => this.props.removeFave(this.props.data.id)}/>
         ) : (
-          <TouchableOpacity
-            onPress={() => this.props.addFave(this.props.data.id)}
-          >
-            <LinearGradient
-              style={styles.button}
-              colors={["#9963ea", "#8797D6"]}
-              start={{ x: 0.0, y: 1.0 }}
-              end={{ x: 1.0, y: 0.0 }}
-            >
-              <Text style={styles.buttonText}>Add to Faves</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+          <GradientButton text={"Add to Faves"} action={() => this.props.addFave(this.props.data.id)}/>
         )}
         <ModalContent data={this.props.data} modalVisible={this.state.modalVisible} closeModal={this.toggleModal}/>
       </View>
