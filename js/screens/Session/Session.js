@@ -16,6 +16,7 @@ import Moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
+import ModalContent from "../../components/ModalContent";
 
 const heartIcon = Platform.select({
   ios: "ios-heart",
@@ -24,8 +25,8 @@ const heartIcon = Platform.select({
 
 export default class SessionSingle extends Component {
   state = { modalVisible: false };
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
+  toggleModal = () => {
+    this.setState(PrevState => ({ modalVisible: !PrevState.modalVisible }));
   }
   render() {
     return (
@@ -44,9 +45,9 @@ export default class SessionSingle extends Component {
         <Text>Presented by:</Text>
         <TouchableOpacity
           style={styles.speakerInfo}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
+          onPress={
+            this.toggleModal
+          }
         >
           <Image
             style={{ width: 50, height: 50, borderRadius: 25 }}
@@ -82,57 +83,7 @@ export default class SessionSingle extends Component {
             </LinearGradient>
           </TouchableOpacity>
         )}
-
-        <Modal
-        style={styles.modal}
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            this.setModalVisible(!this.state.modalVisible);
-          }}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.modalHeader}>
-              <TouchableHighlight
-                style={styles.modalClose}
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}
-              >
-                <Ionicons name={`ios-close`} size={50} color="white" />
-              </TouchableHighlight>
-              <Text style={styles.modalTitle}>About the speaker</Text>
-            </View>
-            <View style={styles.modalContent}>
-              <ScrollView>
-              <Image
-                style={styles.modalImage}
-                source={{ uri: this.props.data.speaker.image }}
-              />
-              <Text style={styles.modalName}>
-                {this.props.data.speaker.name}
-              </Text>
-
-              <Text style={styles.modalBio}>{this.props.data.speaker.bio}</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  Linking.openURL(this.props.data.speaker.url);
-                }}
-              >
-                <LinearGradient
-                  style={styles.button}
-                  colors={["#9963ea", "#8797D6"]}
-                  start={{ x: 0.0, y: 1.0 }}
-                  end={{ x: 1.0, y: 0.0 }}
-                >
-                  <Text style={styles.buttonText}>Read more on Wiki</Text>
-                </LinearGradient>
-              </TouchableOpacity>
-              </ScrollView>
-            </View>
-          </View>
-        </Modal>
+        <ModalContent data={this.props.data} modalVisible={this.state.modalVisible} closeModal={this.toggleModal}/>
       </View>
     );
   }

@@ -21,10 +21,6 @@ export default class SpeakerContainer extends Component {
     title: "Speaker"
   };
   render() {
-    return (
-      <View>
-        <Text>HIHI</Text>
-      </View>
-    );
+    return (<Soeaker/>);
   }
 }
