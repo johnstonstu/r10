@@ -45,12 +45,15 @@ export default class SessionContainer extends Component {
           return (
             <FavsContext.Consumer>
               {values => {
+                faveArr = [];
+                values.favesIds.map(fave => faveArr.push(fave.id));
                 return (
                   <SessionSingle
                     data={Session}
                     addFave={values.addFave}
                     removeFave={values.removeFave}
                     nav={id => this.speakerNav(id)}
+                    favesIds={faveArr}
                   />
                 );
               }}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, ActivityIndicator } from "react-native";
 import Favs from "./Favs";
 import FavesContext from "../../context/FavesContext";
 import { Query } from "react-apollo";
@@ -30,7 +30,7 @@ export default class FavsContainer extends Component {
     return (
       <Query query={GET_FAVES}>
         {({ loading, error, data }) => {
-          if (loading) return null;
+          if (loading) return <ActivityIndicator />;
           if (error) return <Text>{`Error: ${error}`}</Text>;
           return (
             <FavesContext.Consumer>

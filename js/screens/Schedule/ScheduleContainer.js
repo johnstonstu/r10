@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, ActivityIndicator } from "react-native";
 import Schedule from "./Schedule.js";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
@@ -28,7 +28,7 @@ export default class ScheduleContainer extends Component {
     return (
       <Query query={GET_SCHEDULE}>
         {({ loading, error, data: { allSessions } }) => {
-          if (loading) return null;
+          if (loading) return <ActivityIndicator />;
           if (error) return `Error!: ${error}`;
 
           return (
