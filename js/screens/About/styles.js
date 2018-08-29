@@ -5,21 +5,20 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingHorizontal: 12
   },
-  image: {
-    alignSelf: "center",
-    marginVertical: 12
-  },
   header: {
     fontSize: 20,
     fontFamily: "Montserrat-Regular",
     marginVertical: 16
   },
+  image: {
+    marginVertical: 12,
+    alignSelf: "center"
+  },
   content: {
-    paddingVertical: 12,
     marginVertical: 8,
-    borderTopColor: "#e6e6e6",
+    paddingVertical: 12,
+    borderColor: "#e6e6e6",
     borderTopWidth: 1,
-    borderBottomColor: "#e6e6e6",
     borderBottomWidth: 1
   },
   titleContainer: {
@@ -31,8 +30,11 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-Regular",
     marginBottom: 16
   },
-  bodyText: {
+  text: {
     fontFamily: "Montserrat-Light"
+  },
+  copyright: {
+    marginVertical: 10
   }
 });
 
