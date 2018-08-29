@@ -8,10 +8,14 @@ import {
   Modal,
   TouchableHighlight,
   Linking,
-  Platform
+  Platform,
+  StyleSheet,
+  ScrollView
 } from "react-native";
 import Moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import styles from "./styles";
+import LinearGradient from "react-native-linear-gradient";
 
 const heartIcon = Platform.select({
   ios: "ios-heart",
@@ -25,16 +29,21 @@ export default class SessionSingle extends Component {
   }
   render() {
     return (
-      <View>
-        <Text>{this.props.data.location}</Text>
-        {this.props.favesIds.includes(this.props.data.id) && (
-          <Ionicons name={heartIcon} size={18} color={"red"} />
-        )}
-        <Text>{this.props.data.title}</Text>
-        <Text>{Moment(this.props.data.startTime).format("h:mm A")}</Text>
-        <Text>{this.props.data.description}</Text>
+      <View style={styles.container}>
+        <View style={styles.locationHeart}>
+          <Text style={styles.location}>{this.props.data.location}</Text>
+          {this.props.favesIds.includes(this.props.data.id) && (
+            <Ionicons name={heartIcon} size={18} color={"#cf392a"} />
+          )}
+        </View>
+        <Text style={styles.title}>{this.props.data.title}</Text>
+        <Text style={styles.time}>
+          {Moment(this.props.data.startTime).format("h:mm A")}
+        </Text>
+        <Text style={styles.description}>{this.props.data.description}</Text>
         <Text>Presented by:</Text>
         <TouchableOpacity
+          style={styles.speakerInfo}
           onPress={() => {
             this.setModalVisible(true);
           }}
@@ -43,22 +52,39 @@ export default class SessionSingle extends Component {
             style={{ width: 50, height: 50, borderRadius: 25 }}
             source={{ uri: this.props.data.speaker.image }}
           />
-          <Text>{this.props.data.speaker.name}</Text>
+          <Text style={styles.speakerName}>{this.props.data.speaker.name}</Text>
         </TouchableOpacity>
 
         {this.props.favesIds.includes(this.props.data.id) ? (
-          <Button
-            title="remove from faves"
+          <TouchableOpacity
             onPress={() => this.props.removeFave(this.props.data.id)}
-          />
+          >
+            <LinearGradient
+              style={styles.button}
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 1.0 }}
+              end={{ x: 1.0, y: 0.0 }}
+            >
+              <Text style={styles.buttonText}>Remove from Faves</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         ) : (
-          <Button
-            title="add to faves"
+          <TouchableOpacity
             onPress={() => this.props.addFave(this.props.data.id)}
-          />
+          >
+            <LinearGradient
+              style={styles.button}
+              colors={["#9963ea", "#8797D6"]}
+              start={{ x: 0.0, y: 1.0 }}
+              end={{ x: 1.0, y: 0.0 }}
+            >
+              <Text style={styles.buttonText}>Add to Faves</Text>
+            </LinearGradient>
+          </TouchableOpacity>
         )}
 
         <Modal
+        style={styles.modal}
           animationType="slide"
           transparent={false}
           visible={this.state.modalVisible}
@@ -66,28 +92,44 @@ export default class SessionSingle extends Component {
             this.setModalVisible(!this.state.modalVisible);
           }}
         >
-          <View style={{ marginTop: 22 }}>
-            <TouchableHighlight
-              onPress={() => {
-                this.setModalVisible(!this.state.modalVisible);
-              }}
-            >
-              <Ionicons name={`ios-close`} size={50} />
-            </TouchableHighlight>
-            <Text>About the speaker</Text>
-            <View>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <TouchableHighlight
+                style={styles.modalClose}
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}
+              >
+                <Ionicons name={`ios-close`} size={50} color="white" />
+              </TouchableHighlight>
+              <Text style={styles.modalTitle}>About the speaker</Text>
+            </View>
+            <View style={styles.modalContent}>
+              <ScrollView>
               <Image
-                style={{ width: 50, height: 50, borderRadius: 25 }}
+                style={styles.modalImage}
                 source={{ uri: this.props.data.speaker.image }}
               />
-              <Text>{this.props.data.speaker.bio}</Text>
-              <TouchableHighlight
+              <Text style={styles.modalName}>
+                {this.props.data.speaker.name}
+              </Text>
+
+              <Text style={styles.modalBio}>{this.props.data.speaker.bio}</Text>
+              <TouchableOpacity
                 onPress={() => {
                   Linking.openURL(this.props.data.speaker.url);
                 }}
               >
-                <Text>Read More</Text>
-              </TouchableHighlight>
+                <LinearGradient
+                  style={styles.button}
+                  colors={["#9963ea", "#8797D6"]}
+                  start={{ x: 0.0, y: 1.0 }}
+                  end={{ x: 1.0, y: 0.0 }}
+                >
+                  <Text style={styles.buttonText}>Read more on Wiki</Text>
+                </LinearGradient>
+              </TouchableOpacity>
+              </ScrollView>
             </View>
           </View>
         </Modal>
