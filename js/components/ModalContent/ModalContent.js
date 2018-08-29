@@ -16,6 +16,7 @@ import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import GradientButton from '../GradientButton'
+import PropTypes from 'prop-types';
 
 export const ModalContent = props => {
     return (
@@ -59,4 +60,10 @@ export const ModalContent = props => {
           </View>
         </Modal>
     )
+}
+
+ModalContent.propTypes = {
+  data: PropTypes.object.isRequired,
+  modalVisible: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
 }

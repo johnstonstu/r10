@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Text, View, ScrollView, Platform } from "react-native";
 import { SessionList } from "../../components/SessionList";
+import PropTypes from 'prop-types';
 
 const Schedule = props => {
   return (
@@ -11,5 +12,11 @@ const Schedule = props => {
     />
   );
 };
+
+Schedule.propTypes = {
+  sessions: PropTypes.array.isRequired,
+  faveIds: PropTypes.array,
+  nav: PropTypes.func.isRequired,
+}
 
 export default Schedule;

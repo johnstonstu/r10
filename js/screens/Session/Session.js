@@ -18,6 +18,7 @@ import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import ModalContent from "../../components/ModalContent";
 import GradientButton from '../../components/GradientButton'
+import PropTypes from 'prop-types';
 
 const heartIcon = Platform.select({
   ios: "ios-heart",
@@ -66,4 +67,11 @@ export default class SessionSingle extends Component {
       </View>
     );
   }
+}
+
+SessionSingle.propTypes = {
+  data: PropTypes.object.isRequired,
+  faveIds: PropTypes.array,
+  addFave: PropTypes.func.isRequired,
+  removeFave: PropTypes.func.isRequired
 }

@@ -4,6 +4,7 @@ import SessionSingle from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import FavsContext from "../../context/FavesContext";
+import PropTypes from 'prop-types';
 
 export const SESSION_QUERY = gql`
   query getSession($id: ID) {
@@ -27,12 +28,6 @@ export const SESSION_QUERY = gql`
 export default class SessionContainer extends Component {
   static navigationOptions = { title: "Session" };
 
-  speakerNav = id => {
-    this.props.navigation.navigate("Speaker", {
-      id: id
-    });
-  };
-
   render() {
     return (
       <Query
@@ -52,7 +47,6 @@ export default class SessionContainer extends Component {
                     data={Session}
                     addFave={values.addFave}
                     removeFave={values.removeFave}
-                    nav={id => this.speakerNav(id)}
                     favesIds={faveArr}
                   />
                 );
@@ -63,4 +57,8 @@ export default class SessionContainer extends Component {
       </Query>
     );
   }
+}
+
+SessionContainer.propTypes = {
+  navigation: PropTypes.object.isRequired,
 }

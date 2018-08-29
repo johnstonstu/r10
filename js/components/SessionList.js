@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import Moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import PropTypes from 'prop-types';
 
 const heartIcon = Platform.select({
   ios: "ios-heart",
@@ -47,6 +48,12 @@ export const SessionList = ({ data, nav, favesIds }) => {
     </ScrollView>
   );
 };
+
+SessionList.propTypes = {
+  data: PropTypes.array.isRequired,
+  faveIds: PropTypes.array,
+  nav: PropTypes.func.isRequired,
+}
 
 const styles = StyleSheet.create({
   container: {

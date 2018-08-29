@@ -5,6 +5,9 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import { formatSessionData } from "../../lib/dataFormatHelper";
 import FavesContext from "../../context/FavesContext";
+import PropTypes from 'prop-types'
+
+
 const GET_SCHEDULE = gql`
   {
     allSessions {
@@ -51,3 +54,4 @@ export default class ScheduleContainer extends Component {
     );
   }
 }
+

@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Text, View, Image, ScrollView } from "react-native";
 import AboutConduct from "../../components/AboutConduct";
 import styles from "./styles";
+import PropTypes from 'prop-types';
 
 const About = props => {
   return (
@@ -29,5 +30,10 @@ const About = props => {
     </ScrollView>
   );
 };
+
+About.propTypes = {
+  conducts: PropTypes.array.isRequired
+}
+
 
 export default About;

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import { TouchableOpacity, Text } from 'react-native';
+import PropTypes from 'prop-types'
 
 export const GradientButton = props => {
     return(
@@ -18,4 +19,9 @@ export const GradientButton = props => {
             </LinearGradient>
           </TouchableOpacity>
     )
+}
+
+GradientButton.propTypes = {
+  text: PropTypes.string.isRequired,
+  action: PropTypes.func.isRequired,
 }

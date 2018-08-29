@@ -51,7 +51,7 @@ export default class ConductItem extends Component {
         <TouchableOpacity onPress={() => this.toggle()}>
           <View style={this.props.styles.titleContainer}>
             <Ionicons
-              name={Platform.OS === "ios" ? `ios-${icon}` : `md-${icon}`}
+              name={Platform.OS === "android" ? `md-${icon}` : `ios-${icon}`}
               style={{ paddingRight: 5 }}
               color={"#9963ea"}
               size={15}
@@ -72,6 +72,6 @@ export default class ConductItem extends Component {
 }
 
 ConductItem.propTypes = {
-  data: PropTypes.object.isRequired,
-  styles: PropTypes.object.isRequired
+  styles: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired
 };
