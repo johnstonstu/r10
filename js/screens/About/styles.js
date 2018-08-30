@@ -30,7 +30,8 @@ const styles = StyleSheet.create({
   },
   copyright: {
     marginVertical: 10,
-    fontFamily: mainFont
+    fontFamily: mainFont,
+    color: '#999999'
   }
 });
 

@@ -12,16 +12,20 @@ const styles = StyleSheet.create({
       paddingLeft: 10
     },
     title: {
-        fontFamily: mainFont,
+      fontFamily: mainFont,
       fontWeight: "bold",
       marginBottom: 5,
       marginLeft: 10,
-      marginTop: 10
+      marginTop: 10,
+      paddingRight: 25,
+      color: 'black',
+      fontSize: 16
     },
     location: {
-    fontFamily: mainFont,
+      fontFamily: mainFont,
       marginLeft: 10,
-      marginBottom: 10
+      marginBottom: 10,
+      color: '#999999'
     },
     heart: {
       marginRight: 10

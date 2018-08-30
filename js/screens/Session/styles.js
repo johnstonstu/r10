@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   location: {
-    fontSize: 14
+    fontSize: 14,
+    color: '#999999',
+    fontFamily: mainFont,
   },
   title: {
     fontSize: 24,

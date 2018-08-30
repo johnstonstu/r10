@@ -38,7 +38,7 @@ export default class SessionSingle extends Component {
           {Moment(this.props.data.startTime).format("h:mm A")}
         </Text>
         <Text style={styles.description}>{this.props.data.description}</Text>
-        <Text>Presented by:</Text>
+        <Text style={styles.location}>Presented by:</Text>
         <TouchableOpacity
           style={styles.speakerInfo}
           onPress={
