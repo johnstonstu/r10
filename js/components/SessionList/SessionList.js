@@ -17,12 +17,13 @@ const heartIcon = Platform.select({
   android: "md-heart"
 });
 
-export const SessionList = ({ data, nav, favesIds }) => {
+export const SessionList = ({ data, nav, favesIds }) => {  
   return (
     <ScrollView style={styles.container}>
       <SectionList
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => {
+            console.log(item)
             if(item.description){
               return nav(item.id)
             }

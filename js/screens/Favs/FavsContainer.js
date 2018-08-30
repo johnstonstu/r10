@@ -10,6 +10,7 @@ const GET_FAVES = gql`
   {
     allSessions {
       id
+      description
       location
       startTime
       title
