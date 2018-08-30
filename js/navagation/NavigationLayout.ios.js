@@ -10,7 +10,6 @@ import Schedule from "../screens/Schedule";
 import Session from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
-import { Platform } from "react-native";
 import {mainFont} from '../config/styles'
 
 const stackAbout = createStackNavigator(
@@ -94,9 +93,6 @@ export default createBottomTabNavigator(
             iconName = `ios-information-circle`;
             break;
         }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
     }),

@@ -4,15 +4,11 @@ import {
   View,
   Button,
   Image,
-  TouchableOpacity,
   Modal,
   TouchableHighlight,
   Linking,
-  Platform,
-  StyleSheet,
   ScrollView
 } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
 import styles from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import GradientButton from '../GradientButton'

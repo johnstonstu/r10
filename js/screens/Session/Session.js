@@ -5,17 +5,11 @@ import {
   Button,
   Image,
   TouchableOpacity,
-  Modal,
-  TouchableHighlight,
-  Linking,
   Platform,
-  StyleSheet,
-  ScrollView
 } from "react-native";
 import Moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
-import LinearGradient from "react-native-linear-gradient";
 import ModalContent from "../../components/ModalContent";
 import GradientButton from '../../components/GradientButton'
 import PropTypes from 'prop-types';
@@ -33,7 +27,6 @@ export default class SessionSingle extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView>
         <View style={styles.locationHeart}>
           <Text style={styles.location}>{this.props.data.location}</Text>
           {this.props.favesIds.includes(this.props.data.id) && (
@@ -65,7 +58,6 @@ export default class SessionSingle extends Component {
           <GradientButton text={"Add to Faves"} action={() => this.props.addFave(this.props.data.id)}/>
         )}
         <ModalContent data={this.props.data} modalVisible={this.state.modalVisible} closeModal={this.toggleModal}/>
-        </ScrollView>
       </View>
     );
   }

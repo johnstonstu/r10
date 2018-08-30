@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, ActivityIndicator } from "react-native";
+import { Text, ActivityIndicator } from "react-native";
 import SessionSingle from "./Session";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";

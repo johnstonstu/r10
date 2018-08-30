@@ -4,8 +4,7 @@ import {
   SectionList,
   Text,
   View,
-  TouchableHighlight,
-  StyleSheet,
+  TouchableOpacity,
   Platform
 } from "react-native";
 import Moment from "moment";
@@ -23,7 +22,11 @@ export const SessionList = ({ data, nav, favesIds }) => {
     <ScrollView style={styles.container}>
       <SectionList
         renderItem={({ item }) => (
-          <TouchableHighlight onPress={() => nav(item.id)}>
+          <TouchableOpacity onPress={() => {
+            if(item.description){
+              return nav(item.id)
+            }
+            }}>
             <View style={styles.card}>
               <Text style={styles.title}>{item.title}</Text>
               <View style={styles.locationHeart}>
@@ -38,7 +41,7 @@ export const SessionList = ({ data, nav, favesIds }) => {
                 )}
               </View>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         )}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.time}>{Moment(title).format("h:mm A")}</Text>

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Text, View, WebView } from "react-native";
+import React from "react";
+import { WebView } from "react-native";
 
 const Map = () => {
   return (

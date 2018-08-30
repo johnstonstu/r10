@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import { Text, View, ScrollView, Platform } from "react-native";
+import React from "react";
 import SessionList from "../../components/SessionList";
 import PropTypes from 'prop-types';
 

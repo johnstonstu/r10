@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, ActivityIndicator } from "react-native";
+import { ActivityIndicator } from "react-native";
 import About from "./About";
-import { ApolloClient } from "apollo-client";
-import { ApolloProvider } from "react-apollo";
 import client from "../../config/api";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import formatData from "../../lib/dataFormatHelper";
 
 const GET_ALL_CONDUCTS = gql`
   {

@@ -3,8 +3,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  Platform,
-  Text
+  Platform
 } from "react-native";
 import { Header } from "react-navigation";
 import Ionicons from "react-native-vector-icons/Ionicons";

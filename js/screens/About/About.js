@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { Text, View, Image, ScrollView } from "react-native";
 import AboutConduct from "../../components/AboutConduct";
 import styles from "./styles";
@@ -6,7 +6,8 @@ import PropTypes from 'prop-types';
 
 const About = props => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
+    <ScrollView style={styles.scroll}>
       <Image
         source={require("../../assets/images/r10_logo.png")}
         style={styles.image}
@@ -28,6 +29,7 @@ const About = props => {
       </View>
       <Text style={styles.copyright}>&copy; RED Academy 2020</Text>
     </ScrollView>
+    </View>
   );
 };
 

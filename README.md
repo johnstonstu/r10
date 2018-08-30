@@ -49,14 +49,8 @@ or
 
 # Screenshots
 
-## Android
-![Schedule](/screenshots/androidSchedule.png)
-![Session](/screenshots/androidSession.png)
-![Speaker](/screenshots/androidSpeaker.png)
-![Map](/screenshots/androidMap.png)
-![Faves](/screenshots/androidFavs.png)
-![About](/screenshots/androidAbout.png)
-![Drawer Nav](/screenshots/androidNav.png)
-
 ## iOS
 ![iOS](/screenshots/iosSchedule.png)
+
+## Android
+![Android](/screenshots/androidSchedule.png)

@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     paddingHorizontal: 12
   },
+  scroll:{
+    backgroundColor: "white"
+  },
   header: {
     fontSize: 20,
     fontFamily: mainFont,

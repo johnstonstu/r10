@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, ActivityIndicator } from "react-native";
+import { Text, ActivityIndicator } from "react-native";
 import Favs from "./Favs";
 import FavesContext from "../../context/FavesContext";
 import { Query } from "react-apollo";
