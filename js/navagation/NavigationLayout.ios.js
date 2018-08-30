@@ -11,6 +11,7 @@ import Session from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
 import { Platform } from "react-native";
+import {mainFont} from '../config/styles'
 
 const stackAbout = createStackNavigator(
   {
@@ -104,14 +105,7 @@ export default createBottomTabNavigator(
       inactiveTintColor: "gray",
       labelStyle: {
         fontSize: 10,
-        ...Platform.select({
-          ios: {
-            fontFamily: "Montserrat"
-          },
-          android: {
-            fontFamily: "Montserrat-Regular"
-          }
-        })
+        fontFamily: mainFont,
       },
       style: {
         backgroundColor: "black",

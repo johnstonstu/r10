@@ -29,6 +29,7 @@ export const sharedNavigationOptions = navigation => ({
     android: {
       headerLeft: (
         <TouchableOpacity
+          style={{marginLeft: 15}}
           activeOpacity={0.6}
           onPress={() => navigation.openDrawer()}
         >
@@ -37,6 +38,7 @@ export const sharedNavigationOptions = navigation => ({
       )
     }
   }),
+  headerTintColor: 'white',
   header: props => <GradientHeader {...props} />,
   headerStyle: { backgroundColor: "transparent" }
 });

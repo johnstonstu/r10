@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { SessionList } from "../../components/SessionList";
+import SessionList from "../../components/SessionList";
 import PropTypes from 'prop-types'
 
 const Favs = props => {

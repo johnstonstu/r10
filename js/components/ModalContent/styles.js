@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { mainFont } from '../../config/styles'
 
 const styles = StyleSheet.create({
     modal:{
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
       marginLeft: 15
     },
     modalTitle: {
+      fontFamily: mainFont,
       color: "white",
       alignSelf: "center",
       marginLeft: "auto",
@@ -40,12 +42,14 @@ const styles = StyleSheet.create({
       marginTop: 15
     },
     modalName: {
+      fontFamily: mainFont,
       fontSize: 24,
       textAlign: "center",
       marginTop: 15,
       fontWeight: "bold"
     },
     modalBio: {
+      fontFamily: mainFont,
       fontSize: 16,
       textAlign: "left",
       marginHorizontal: 15,

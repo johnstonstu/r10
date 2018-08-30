@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { mainFont } from '../../config/styles'
 
 const styles = StyleSheet.create({
   container: {
@@ -7,12 +8,12 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 20,
-    fontFamily: "Montserrat-Regular",
+    fontFamily: mainFont,
     marginVertical: 16
   },
   image: {
-    marginVertical: 12,
-    alignSelf: "center"
+    marginVertical: 15,
+    alignSelf: "center",
   },
   content: {
     marginVertical: 8,
@@ -21,20 +22,12 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderBottomWidth: 1
   },
-  titleContainer: {
-    flexDirection: "row",
-    paddingRight: 12
-  },
-  title: {
-    color: "#9963EA",
-    fontFamily: "Montserrat-Regular",
-    marginBottom: 16
-  },
   text: {
-    fontFamily: "Montserrat-Light"
+    fontFamily: mainFont
   },
   copyright: {
-    marginVertical: 10
+    marginVertical: 10,
+    fontFamily: mainFont
   }
 });
 

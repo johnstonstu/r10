@@ -33,6 +33,7 @@ export default class SessionSingle extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <ScrollView>
         <View style={styles.locationHeart}>
           <Text style={styles.location}>{this.props.data.location}</Text>
           {this.props.favesIds.includes(this.props.data.id) && (
@@ -64,6 +65,7 @@ export default class SessionSingle extends Component {
           <GradientButton text={"Add to Faves"} action={() => this.props.addFave(this.props.data.id)}/>
         )}
         <ModalContent data={this.props.data} modalVisible={this.state.modalVisible} closeModal={this.toggleModal}/>
+        </ScrollView>
       </View>
     );
   }

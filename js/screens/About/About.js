@@ -23,7 +23,7 @@ const About = props => {
         </Text>
         <Text style={styles.header}>Code of Conduct</Text>
         {props.conducts.map(conduct => (
-          <AboutConduct data={conduct} styles={styles} key={conduct.title} />
+          <AboutConduct data={conduct} key={conduct.title} />
         ))}
       </View>
       <Text style={styles.copyright}>&copy; RED Academy 2020</Text>
